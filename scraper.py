@@ -59,7 +59,6 @@ def getReviews(url, driver):
     try:
         overall_rating = driver.find_element(By.CSS_SELECTOR, "[data-selenium=hotel-header-review-score]").text
         
-        # print("Worked", 1)
     except:
         print("Exception:", 1)
     
@@ -67,31 +66,26 @@ def getReviews(url, driver):
     if not overall_rating:
         try:
             overall_rating = driver.find_element(By.CLASS_NAME, "Review__ReviewFormattedScore").text
-            # print("Worked", 2)
         except:
             print("Exception:", 2)
 
     if not overall_rating:
         try:
             overall_rating = driver.find_element(By.CLASS_NAME,"Typographystyled__TypographyStyled-sc-j18mtu-0 hTkvyT kite-js-Typography").text
-            # print("Worked", 3)
-            #  Typographystyled__TypographyStyled-sc-j18mtu-0 hTkvyT kite-js-Typography 
+            
         except:
             print("Exception:", 3)
     if not overall_rating:
         try:
             overall_rating = driver.find_element(By.CLASS_NAME,"Typographystyled__TypographyStyled-sc-j18mtu-0 gouaKT kite-js-Typography").text
-            # print("Worked", 4)
-            #  Typographystyled__TypographyStyled-sc-j18mtu-0 hTkvyT kite-js-Typography 
+            
         except:
             print("Exception:", 4)
 
     if not overall_rating:
         try:
             overall_rating = driver.find_element(By.CSS_SELECTOR, "[data-selenium=hotel-header-review-score]").text
-            # y = x.find_element(By.CLASS_NAME, "review-branding-section")
-            # z = y.find_element(By.CLASS_NAME, "review-branding-right")
-            # print("Worked:", 5)
+            
 
         except:
             print("Exception:", 5)
@@ -162,8 +156,7 @@ def scraper(queryURL, driver, num):
     return lst
 
 
-chrome_options = Options()
-chrome_options.add_argument("--headless")
+
 driver = webdriver.Chrome()
 
 
@@ -183,4 +176,3 @@ with open("bangkok1_hotels.json", "w") as outfile:
 driver.close()
 driver.quit()
 
-#Typographystyled__TypographyStyled-sc-j18mtu-0 hTkvyT kite-js-Typography 
